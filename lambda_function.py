@@ -133,6 +133,6 @@ def generate_code_using_bedrock(message: str, code_language: str) -> str:
         code_generation_response_text: Any = code_generation_response["output"]["message"]
         generated_code: str = _extract_text(code_generation_response_text)
         return generated_code
-    except Exception as e:
+    except ClientError as e:
         print(f"Error during Bedrock interaction: {e}")
         raise
